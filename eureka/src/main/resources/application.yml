@@ -4,9 +4,12 @@ server:
 eureka:
   instance:
     hostname: localhost
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    instance_id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
+    # 나자신은 등록하지 않음
     register-with-eureka: false
+    # 마이크로 서비스 인스턴스 목록을 로컬에 캐시할 것인지의 여부
     fetch-registry: false
+    ## 아래 설정이 없으면 다음 에러
     service-url:
       defaultZone: http://localhost:8761/eureka
