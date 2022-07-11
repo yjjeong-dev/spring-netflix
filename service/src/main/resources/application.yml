@@ -1,20 +1,16 @@
 server:
-  port: 8000
+  port: 8001
 
 spring:
-  main:
-    web-application-type: reactive
   application:
-    name: gateway
-
-  cloud:
-    gateway:
-      routes:
-        - id: yjjeong-service
-          uri: lb://yjjeong-service
-          predicates:
-            - Path=/v1/home/**
-
+    name: yjjeong-service
+  devtools:
+    livereload:
+      enabled: false # livereload 사용시 활성화
+    restart:
+      enabled: false #운영 에서는 제거.
+# logging:
+#   config: classpath:log4j2.xml
 eureka:
   instance:
     hostname: localhost
