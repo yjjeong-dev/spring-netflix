@@ -2,6 +2,8 @@ server:
   port: 8761
 
 eureka:
+  server:
+    enable-self-preservation: false
   instance:
     hostname: localhost
     instance_id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
